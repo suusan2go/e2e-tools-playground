@@ -8,5 +8,5 @@ Scenario("test something", I => {
   const random = Math.random()
     .toString(36)
     .slice(-8);
-  I.saveScreenshot("./screenshots/" + random + ".png");
+  I.saveScreenshot("./" + random + ".png");
 });
