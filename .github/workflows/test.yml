@@ -1,0 +1,45 @@
+name: frontend
+
+on: [push]
+
+jobs:
+  codeceptjs:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+
+      - name: Install dependencies
+        working-directory: ./codeceptjs
+        run: |
+          yarn install
+
+      - name: Run codeceptjs
+        working-directory: ./codeceptjs
+        run: |
+          yarn run codeceptjs run --help
+  testcafe:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+
+      - name: Install dependencies
+        working-directory: ./codeceptjs
+        run: |
+          yarn install
+
+      - name: Run codeceptjs
+        working-directory: ./codeceptjs
+        run: |
+          yarn run codeceptjs run --help
