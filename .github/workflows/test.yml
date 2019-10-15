@@ -28,3 +28,8 @@ jobs:
         working-directory: ./codeceptjs
         run: |
           yarn run codeceptjs run --steps --profile chrome
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: capture
+          path: screenshots
