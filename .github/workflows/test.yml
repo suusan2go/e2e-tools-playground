@@ -19,27 +19,17 @@ jobs:
         run: |
           yarn install
 
-      - name: Run codeceptjs
+      - name: Run codeceptjs on IE
         working-directory: ./codeceptjs
         run: |
-          yarn run codeceptjs run --help
-  testcafe:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
+          yarn run codeceptjs run --steps
 
-      - name: Set Node.js 10.x
-        uses: actions/setup-node@master
+      - name: Run codeceptjs on Chrome
+        working-directory: ./codeceptjs
+        run: |
+          yarn run codeceptjs run --steps --profile chrome
+
+      - uses: actions/upload-artifact@master
         with:
-          version: 10.x
-
-      - name: Install dependencies
-        working-directory: ./codeceptjs
-        run: |
-          yarn install
-
-      - name: Run codeceptjs
-        working-directory: ./codeceptjs
-        run: |
-          yarn run codeceptjs run --help
+          name: capture
+          path: ./codeceptjs/output

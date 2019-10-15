@@ -5,5 +5,9 @@ Scenario("test something", I => {
   I.fillField("name", "suusan2go");
   I.click("Submit");
   I.see("Thank you, suusan2go!");
-  I.amOnPage("google.com");
+  I.amOnPage("https://www.whatsmybrowser.org");
+  const random = Math.random()
+    .toString(36)
+    .slice(-8);
+  I.saveScreenshot("./" + random + ".png");
 });
