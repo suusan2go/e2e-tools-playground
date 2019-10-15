@@ -19,7 +19,12 @@ jobs:
         run: |
           yarn install
 
-      - name: Run codeceptjs
+      - name: Run codeceptjs on IE
         working-directory: ./codeceptjs
         run: |
           yarn run codeceptjs run --steps
+
+      - name: Run codeceptjs on Chrome
+        working-directory: ./codeceptjs
+        run: |
+          yarn run codeceptjs run --steps --profile chrome
