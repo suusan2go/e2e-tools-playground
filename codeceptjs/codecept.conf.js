@@ -4,7 +4,7 @@ exports.config = {
   helpers: {
     WebDriver: {
       url: "http://localhost",
-      browser: "internet explorer",
+      browser: process.profile || "internet explorer",
       restart: false,
       windowSize: "1920x1680",
     },
